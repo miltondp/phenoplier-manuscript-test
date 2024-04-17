@@ -54,6 +54,9 @@ jobs:
           manubot_url=$(echo "$manubot_line" | awk -F"- " '{print $2}')
 
           pip install ${manubot_url}#egg=manubot[ai-rev]
+
+          # install manubot-ai-editor for this PR
+          pip install -U git+https://github.com/falquaddoomi/manubot-ai-editor@7084475945ae84a7cbc09bec082eb534b758a3f6
       - name: Revise manuscript
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
